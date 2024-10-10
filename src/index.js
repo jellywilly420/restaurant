@@ -56,12 +56,11 @@ function renderPage(page) {
     }
 }
 
-// -------------------
-// console.log(buttons);
+// -------------------  
 for (const i in buttons) {
     buttons[i].addEventListener('click', () => {
         if (getLoadedPage(pages).name != buttons[i].id) {
-            
+
             unloadPage(getLoadedPage(pages))
             loadPage(getPageByName(pages, buttons[i].id));
             clearContent();

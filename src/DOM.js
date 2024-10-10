@@ -3,8 +3,6 @@ const homeButton = document.body.querySelector("#homePage");
 const menuButton = document.body.querySelector("#menuPage");
 const contactButton = document.body.querySelector("#contactPage");
 
-
-
 function clearContent() {
     content.innerHTML = "";
 }
