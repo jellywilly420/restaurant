@@ -45,7 +45,7 @@ function renderHome() {
 
     const reviewHeader = createElement("h2");
     reviewHeader.classList.add("review-header");
-    reviewHeader.innerText = "look at these happy customers :)";
+    reviewHeader.innerText = "Hear from Our Happy Customers";
 
     const carouselDiv = createElement("div");
     carouselDiv.classList.add("carousel-div");
@@ -57,7 +57,7 @@ function renderHome() {
 
     const reviewButton = createElement("button");
     reviewButton.classList.add("review-button");
-    reviewButton.innerText = "leave a review!";
+    reviewButton.innerText = "Leave a Review!";
 
     reviewDiv.append(reviewHeader, carouselDiv, carouselImage, reviewButton);
 
