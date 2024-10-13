@@ -1,4 +1,6 @@
 :root {
+    --in-view-index:0;
+    --carousel-elem-width: 80vw;
     --logo-size: 80px;
     --title-size: 0;
     --nav-bg-clr: rgb(115, 122, 224);
@@ -27,7 +29,17 @@
     --review-div-gap: 1rem;
     --review-header-fsize: 15px;
     --review-header-fclr: black;
-
+    --carousel-grad-1: #8BC6EC;
+    --carousel-grad-2: #9599E2;
+    --review-img-width: 100px;
+    --review-user-fsize: 18px;
+    --review-para-fsize: 14px;
+    --carousel-elem-gap: .5rem;
+    --carousel-elem-padding: 1rem 2rem;
+    --carousel-btn-padding: .25rem;
+    --carousel-btn-size: 25px;
+    --carousel-btn-bg-clr: white;
+    --carousel-btn-clr: black;
     --footer-padding: .5rem 2rem;
 }
 /* temp */
@@ -35,11 +47,13 @@ img {
     width: var(--hero-img-width);
 }
 *{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 body {
     background-color: aliceblue;
+    overflow-x: hidden;
 }
 nav {
     position: sticky;
@@ -169,7 +183,75 @@ q {
     font-size: var(--review-header-fsize);
 }
 
+.carousel-div {
+	position: relative;
+	width: var(--carousel-elem-width);
+	overflow-x: hidden;
+    background-color: var(--carousel-grad-1);
+    background-image: linear-gradient(135deg, var(--carousel-grad-1) 0%, var(--carousel-grad-2) 100%);
+    box-shadow: 5px 5px 0px 0px var(--hero-img-shadow-clr); 
+    border-radius: 5px;
+    border: 1px solid black;
 
+}
+.carousel-elements {
+	display: flex;
+	transform: translateX(calc(var(--in-view-index) * var(--carousel-elem-width) * -1));
+	transition: 450ms transform ease-in-out;
+}
+.carousel-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--carousel-elem-gap);
+	width: 100%;
+	flex-shrink: 0;
+    padding: var(--carousel-elem-padding);
+}
+.carousel-element img {
+    width: var(--review-img-width);
+    aspect-ratio: 1/1;
+    border: 1px solid black;
+    border-radius: 100%;
+    object-fit: cover;
+}
+.carousel-btns button {
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	transform: translateY(-50%);
+    border: none;
+    background-color: var(--carousel-btn-bg-clr);
+    opacity: 60%;
+    cursor: pointer;
+    border-radius: 100%;
+    padding: var(--carousel-btn-padding);
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+}
+.carousel-btns button svg {
+    width: var(--carousel-btn-size);
+    stroke: var(--carousel-btn-clr);
+}
+.carousel-btns button:hover,
+.carousel-btns button:active {
+    opacity: 80%;
+}
+button.prev-btn {
+	left: 3px;
+}
+button.next-btn {
+	right: 3px;
+}
+
+.carousel-element .review-user-name {
+    font-size: var(--review-user-fsize);
+}
+.carousel-element .review-text {
+    font-size: var(--review-para-fsize);
+    text-align: justify;
+}
 
 footer {
     background-color: var(--nav-bg-clr);
@@ -195,7 +277,7 @@ footer ul li {
 footer ul li:hover {
     text-decoration: underline;
 }
-footer .newletter {
+footer .newsletter {
     display: flex;
     flex-direction: column;
     justify-content: start;

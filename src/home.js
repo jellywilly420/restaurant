@@ -1,4 +1,5 @@
 import {createElement, content} from "./DOM.js";
+import {createCarousel} from "./carousel.js";
 import heroImg from "./assets/pancakes-with-blueberries.jpg"
 import specialImg from "./assets/thickcakes.jpg"
 export {renderHome};
@@ -27,8 +28,15 @@ function renderHome() {
     specialDiv.classList.add("special-div");
 
     const specialHeader = createElement("h2");
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June", 
+        "July", "August", "September", "October", "November", "December"
+      ];
+    const date = new Date;
+    const month = date.getMonth();
+    const currentMonthName = monthNames[month];
     specialHeader.classList.add("special-header");
-    specialHeader.innerText = "Try out our October Special: The Thick Stack!";
+    specialHeader.innerText = `Try out our ${currentMonthName} Special: The Thick Stack!`;
 
     const specialImage = createElement("img");
     specialImage.classList.add("special-image");
@@ -47,19 +55,13 @@ function renderHome() {
     reviewHeader.classList.add("review-header");
     reviewHeader.innerText = "Hear from Our Happy Customers";
 
-    const carouselDiv = createElement("div");
-    carouselDiv.classList.add("carousel-div");
-
-    // placeholder
-    const carouselImage = createElement("img");
-    carouselImage.classList.add("carousel");
-    carouselImage.src = heroImg;
+    const carouselDiv = createCarousel();
 
     const reviewButton = createElement("button");
     reviewButton.classList.add("review-button");
     reviewButton.innerText = "Leave a Review!";
 
-    reviewDiv.append(reviewHeader, carouselDiv, carouselImage, reviewButton);
+    reviewDiv.append(reviewHeader, carouselDiv, reviewButton);
 
     content.append(heroDiv, specialDiv, reviewDiv);
 }
