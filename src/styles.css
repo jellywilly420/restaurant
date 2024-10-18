@@ -1,11 +1,11 @@
 :root {
     --in-view-index:0;
     --carousel-elem-width: 80vw;
-    --logo-size: 80px;
+    --logo-size: 60px;
     --title-size: 0;
     --nav-bg-clr: rgb(115, 122, 224);
-    --nav-btn-size: 28px;
-    --nav-btn-gap: 1.5rem;
+    --nav-btn-size: 26px;
+    --nav-btn-gap: 1rem;
     --hero-div-gap: .5rem;
     --hero-bg-clr: rgb(191, 219, 255);
     --hero-img-width: 100%;
@@ -40,7 +40,11 @@
     --carousel-btn-size: 25px;
     --carousel-btn-bg-clr: white;
     --carousel-btn-clr: black;
-    --footer-padding: .5rem 2rem;
+    --footer-padding: .3rem 1rem;
+    --button-bg-clr: #cea340;
+    --button-text-clr: black;
+    --button-padding: .3rem .8rem;
+    --button-text-size: 15px;
 }
 /* temp */
 img {
@@ -50,10 +54,13 @@ img {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    
 }
 body {
+    width: 100vw;
     background-color: aliceblue;
     overflow-x: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 nav {
     position: sticky;
@@ -252,15 +259,36 @@ button.next-btn {
     font-size: var(--review-para-fsize);
     text-align: justify;
 }
+button.review-button,
+button.sign-up {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: var(--button-bg-clr);
+    color: var(--button-text-clr);
+    padding: var(--button-padding);
+    font-size: var(--button-text-size);
+    cursor: pointer;
+}
+button.review-button:hover,
+button.sign-up:hover {
+    filter: saturate(80%);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+}
+button.review-button:active,
+button.sign-up:active {
+    filter: brightness(80%);
+}
 
 footer {
     background-color: var(--nav-bg-clr);
     display: flex;
     justify-content: center;
     padding: var(--footer-padding);
+    box-shadow: 0px -3px 20px 0px rgba(0,0,0,0.25);
+    font-size: 14px;
 }
 footer > * {
-    padding: .5rem;
+    padding: .8rem;
 }
 footer ul {
     list-style: none;
@@ -268,7 +296,7 @@ footer ul {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    gap: .25rem;
+    gap: .2rem;
     border-right: 1px solid black;
 }
 footer ul li {
@@ -281,4 +309,9 @@ footer .newsletter {
     display: flex;
     flex-direction: column;
     justify-content: start;
+    align-items: flex-start;
+    gap: .3rem;
+}
+footer .newsletter button {
+    font-size: 14px;
 }
