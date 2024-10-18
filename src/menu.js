@@ -1,5 +1,10 @@
 import { createElement, content} from "./DOM.js";
-import tempImg from "./temp.jpg";
+import chocolatePancake from "./assets/chocolate-pancakes.jpg";
+import theTower from "./assets/high-tower-pancakes.jpg";
+import strawberryPancake from "./assets/pancakes-with-strawberry-cream.jpg";
+import thickPancake from "./assets/thickcakes.jpg";
+import oatBananaPancake from "./assets/oat-banana-pancakes.jpg";
+
 export {renderMenu};
 
 class Product {
@@ -13,17 +18,24 @@ class Product {
 }
 
 let productList = [
-    new Product("glizzy", "glizzy", "you'll lick your little fingers after this", "$6.99", tempImg), 
-    new Product("pan pizza", "pan-pizza", "finger lickin' good", "$5.49", tempImg), 
+    new Product("The Thick Stack", "thick-pancakes", "These pancakes are so thick, they’re practically cakes! Fluffy, golden, and stacked high, they’ll make you rethink what a pancake should be.", "$6.99", thickPancake),
+    new Product("Choco Stack", "chocolate-pancakes", "A rich, fluffy stack of pancakes smothered in melted chocolate, with a drizzle of even more chocolate on top. It's a chocoholic’s dream come true!", "$12.99", chocolatePancake), 
+    new Product("The Tower", "the-tower", "A sky-high stack of fluffy pancakes, layered with butter and drenched in syrup. So tall, you might need a step stool!", "$19.99", theTower), 
+    new Product("Strawberries & Dream", "strawberry-cream-pancakes", "Fluffy pancakes topped with fresh strawberries and a cloud of whipped cream, drizzled with strawberry syrup. It’s a berry delicious dream come true!", "$10.99", strawberryPancake),
+    new Product("Banana Oat Stack", "banana-oat-pancakes", "Wholesome, fluffy pancakes made with oats and ripe bananas. Naturally sweet and perfect for when you want to feel good about indulging!", "$8.99", oatBananaPancake)
 ]
 
 function renderMenu() {
+    const menuDiv = createElement("div");
+    menuDiv.classList.add("menu-div");
+    content.appendChild(menuDiv);
     for (const i in productList) {
 
         const productDiv = createElement("div");
         productDiv.classList.add(`${productList[i].tag}-div`);
-        if (i === 0) {
+        if (i == 0) {
             productDiv.classList.add("special");
+            console.log(productList[i]);
         }
 
         const productImage = createElement("img");
@@ -44,6 +56,6 @@ function renderMenu() {
 
         productDiv.append(productImage, productTitle, productAbout, productButton);
 
-        content.appendChild(productDiv);
+        menuDiv.appendChild(productDiv);
     }
 }

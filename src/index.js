@@ -64,6 +64,7 @@ for (const i in buttons) {
             loadPage(getPageByName(pages, buttons[i].id));
             clearContent();
             renderPage(getLoadedPage(pages));
+            window.scrollTo({ top: 0});
 
             for (const j in buttons) {
                 enableButton(buttons[j]);
