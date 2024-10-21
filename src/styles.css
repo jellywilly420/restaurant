@@ -260,7 +260,7 @@ button.next-btn {
     text-align: justify;
 }
 button.review-button,
-button.sign-up {
+button.sign-up, .product-button {
     border: 1px solid black;
     border-radius: 5px;
     background-color: var(--button-bg-clr);
@@ -270,12 +270,12 @@ button.sign-up {
     cursor: pointer;
 }
 button.review-button:hover,
-button.sign-up:hover {
+button.sign-up:hover, .product-button:hover {
     filter: saturate(80%);
     box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
 }
 button.review-button:active,
-button.sign-up:active {
+button.sign-up:active, .product-button:active {
     filter: brightness(80%);
 }
 
@@ -317,26 +317,27 @@ footer .newsletter button {
 }
 
 
-
-
-
 .menu-div {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     gap: 1rem;
     padding-block: 1rem;
+    background-color: lavender;
 }
 .menu-div > div  {
     width: min(90%, 500px);
     margin: auto;
     padding: 1rem;
     display: grid;
-    grid-template-areas:    "image name"
-                            "image desc"
-                            "button button";
-    gap: .5rem;
+    grid-template-areas:    "image name name"
+                            "image desc desc"
+                            "button button .";
+    gap: .2rem .5rem;
     background-color: rgb(30, 177, 177);
+    border-radius: 15px;
+    border-left: 5px solid rgb(177, 177, 30);
+    border-right: 5px solid rgb(177, 177, 30);
 }
 .menu-div > div .product-image {
     grid-area: image;
@@ -344,6 +345,18 @@ footer .newsletter button {
     aspect-ratio: 1/1;
     object-fit: cover;
     margin: auto;
+    border-radius: 10px;
+    position: relative;
+}
+.menu-div > div .product-image::after {
+    z-index:2;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, trasparent, #5a5a5aa4);
 }
 .menu-div > div .product-title {
     grid-area: name;
@@ -352,6 +365,4 @@ footer .newsletter button {
 .menu-div > div .product-about {
     grid-area: desc;
 }
-.menu-div > div .product-button {
-    grid-area: button;
-}
+
