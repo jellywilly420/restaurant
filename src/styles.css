@@ -94,7 +94,7 @@ body {
     flex-direction: column;
     width: 100vw;
     min-height: 100vh;
-    background-color: var(--clr-light);
+    background-color: var(--clr-primary);
     overflow-x: hidden;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -139,6 +139,10 @@ nav .buttons button.disabled {
     text-decoration: underline;
     text-decoration-thickness: 3px;
     filter: brightness(0.75);
+}
+.content {
+    display: flex;
+    flex-direction: column;
 }
 .logo svg {
     width: var(--spacing-sl);
@@ -483,6 +487,13 @@ footer .newsletter button {
     flex-direction: column;
     margin-top: var(--spacing-sm);
     color: var(--clr-light);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--clr-light);
+}
+.menu-div > div .product-button:hover,
+.menu-div > div .product-button:active {
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--clr-light);
 }
 .menu-div > div .product-button .price {
     font-size: var(--font-lg);
@@ -491,26 +502,34 @@ footer .newsletter button {
 .contact-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    width: 90%;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-lg);
     margin: auto;
-    padding-block: 1rem;
-    line-height: 1.35rem;
+    line-height: var(--spacing-lg);
+    background-color: var(--clr-primary);
 }
-
 .contact-container h2 {
-    margin-bottom: .8rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--clr-dark-1);
+    font-size: var(--font-xl);
+}
+.contact-container p {
+    font-size: var(--font-md);
+}
+.contact-container ul {
+    margin-top: var(--spacing-xs);
+    list-style: inside;
 }
 .contact-container .follow-us-list {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: .5rem;
-    gap: .25rem;
+    margin: var(--spacing-lg);
+    gap: var(--spacing-md);
 }
-.contact-container .follow-us-list > * {
-    width: 35px;
-    aspect-ratio: 1/1;
+.contact-container .follow-us-list > div > * {
+    width: var(--spacing-sl);
+    height: var(--spacing-sl);
     cursor: pointer;
 }
 .contact-container .follow-us-list > *:hover,
