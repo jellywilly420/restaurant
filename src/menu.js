@@ -38,9 +38,13 @@ function renderMenu() {
             console.log(productList[i]);
         }
 
+        const imageContainer = createElement("div");
+        imageContainer.classList.add("image-container");
+
         const productImage = createElement("img");
         productImage.classList.add("product-image");
         productImage.src = productList[i].image;
+        imageContainer.appendChild(productImage);
 
         const productTitle = createElement("h3");
         productTitle.classList.add("product-title");
@@ -54,7 +58,7 @@ function renderMenu() {
         productButton.classList.add("product-button");
         productButton.innerText = `buy now \n ${productList[i].price}`;
 
-        productDiv.append(productImage, productTitle, productAbout, productButton);
+        productDiv.append(imageContainer, productTitle, productAbout, productButton);
 
         menuDiv.appendChild(productDiv);
     }
