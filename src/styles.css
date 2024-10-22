@@ -356,7 +356,7 @@ button.sign-up:hover, .product-button:hover {
 button.review-button:active,
 button.sign-up:active, .product-button:active {
     filter: brightness(80%);
-    box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.25);
+    box-shadow: none;
 }
 
 footer {
@@ -416,38 +416,38 @@ footer .newsletter button {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 1rem;
-    padding-block: 1rem;
-    background-color: lavender;
+    gap: var(--spacing-md);
+    padding-block: var(--spacing-md);
+    background-color: var(--clr-primary);
 }
 .menu-div > div  {
     width: min(90%, 500px);
     margin: auto;
-    padding: 1rem;
+    padding: var(--spacing-md);
     display: grid;
     grid-template:    "name name name" auto
                             "image desc desc" auto
                             "button button button" auto 
                             / 5fr 5fr 1fr;
-    gap: .4rem .5rem;
-    background-color: rgb(30, 177, 177);
-    border-radius: 15px;
-    border-left: 5px solid rgb(177, 177, 30);
-    border-right: 5px solid rgb(177, 177, 30);
+    gap: var(--spacing-sm);
+    background-color: var(--clr-accent);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--clr-dark-1);
+    border-left: var(--spacing-sm) solid var(--clr-dark-1);
+    box-shadow: 1px 1px 3px var(--clr-dark-2);
 }
 .menu-div > div .product-image {
     aspect-ratio: 1/1;
     object-fit: cover;
-    border-radius: inherit;
 }
 .menu-div > div .image-container {
     position: relative;
-    border-radius: 10px;
+    border-radius: var(--border-radius-md);
     grid-area: image;
     overflow: hidden;
     aspect-ratio: 1/1;
-    /* margin: auto; */
-    border: 1px solid var(--clr-dark-2);
+    border: 1px solid var(--clr-dark-1);
+    box-shadow: 0px 1px 2px var(--clr-dark-1);
 }
 .menu-div > div .image-container::after {
     content: "";
@@ -458,25 +458,36 @@ footer .newsletter button {
     height: 100%;
     width: 100%;
     aspect-ratio: inherit;
-    background-image: linear-gradient(to bottom, transparent, var(--clr-dark-2));
-    border-radius: inherit;
-    opacity: .35;
+    background-image: linear-gradient(to top, var(--clr-dark-1), transparent);
+    opacity: .25;
 }
 .menu-div > div .product-title {
     grid-area: name;
-    text-align: center;
+    font-size: var(--font-md);
+    margin-bottom: var(--spacing-xs);
+    color: var(--clr-dark-1);
 }
 .menu-div > div .product-about {
     grid-area: desc;
-    font-size: calc(10px + 1vmin);
-    /* align-self: center; */
+    font-size: var(--font-sm);
+    opacity: .9;
+    
 }
 .menu-div > div .product-button {
     grid-area: button;  
-    width: 50%;
+    width: 40%;
     justify-self: center;
+    background-color: var(--clr-dark-1);
+    font-size: var(--font-md);
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--spacing-sm);
+    color: var(--clr-light);
 }
-
+.menu-div > div .product-button .price {
+    font-size: var(--font-lg);
+    font-weight: bold;
+}
 .contact-container {
     display: flex;
     flex-direction: column;

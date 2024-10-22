@@ -56,7 +56,7 @@ function renderMenu() {
         
         const productButton = createElement("button");
         productButton.classList.add("product-button");
-        productButton.innerText = `buy now \n ${productList[i].price}`;
+        productButton.innerHTML = `<span class="buy-tex">Buy now</span><span class="price">${productList[i].price}</span>`;
 
         productDiv.append(imageContainer, productTitle, productAbout, productButton);
 
