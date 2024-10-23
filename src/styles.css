@@ -648,5 +648,9 @@ footer .newsletter button {
     }
     .menu-div > div .product-button {
         width: 50%;
+        font-size: var(--font-xl);
+    }
+    .menu-div > div .product-button .price {
+        font-size: var(--font-xxl);
     }
 }
